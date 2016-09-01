@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.unionpay.core.mapper.MainMenuMapper">
+	<resultMap id="BaseResultMap" type="com.unionpay.core.bean.MainMenu" >
+    	<id column="menu_pid" property="menuPid" jdbcType="INTEGER" />
+    	<result column="menu_name" property="menuName" jdbcType="VARCHAR" />
+    	<result column="menu_parent_pid" property="menuParentPid" jdbcType="INTEGER" />
+    	<result column="menu_url" property="menuUrl" jdbcType="VARCHAR" />
+    	<result column="menu_order" property="menuOrder" jdbcType="INTEGER" />
+  	</resultMap>
+  
+    <select id="getMainMenuList" resultMap="BaseResultMap">
+        select * from t_main_menu
+    </select>
+</mapper>
