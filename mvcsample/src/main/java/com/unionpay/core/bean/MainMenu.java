@@ -1,6 +1,6 @@
 package com.unionpay.core.bean;
 
-import com.alibaba.fastjson.*;
+import com.alibaba.fastjson.JSON;
 
 public class MainMenu {
 	private Integer menuPid;

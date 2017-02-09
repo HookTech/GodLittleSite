@@ -14,7 +14,7 @@
 	<!-- mysql连接配置 -->
 	<context:property-placeholder location="classpath*:mysql.properties" />
 	<!-- 数据源 -->
-	<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
+	<!-- <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
           <property name="user" value="${username}"/>
           <property name="password" value="${password}"/>
           <property name="driverClass" value="${jdbcDriverClassName}"/>
@@ -27,13 +27,13 @@
 		  <property name="idleConnectionTestPeriod" value="120" /> 
 		  <property name="acquireRetryAttempts" value="30" />
 		  <property name="initialPoolSize" value="3" />
-     </bean>
-     <!-- <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+     </bean> -->
+     <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
 		<property name="driverClassName" value="${jdbcDriverClassName}" />
 		<property name="url" value="${jdbcUrl}" />
 		<property name="username" value="${username}" />
 		<property name="password" value="${password}" />
-	 </bean> -->
+	 </bean>
   
 	<!-- mybatis重要的bean -->
 	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">  

@@ -1,0 +1,24 @@
+@CHARSET "UTF-8";
+.site-container {
+	background-color: rgb(240,240,240);
+	padding-left: 20px;
+	padding-right: 20px;
+}
+
+div.header {
+}
+
+div.content {
+}
+
+div.footer {
+	margin-top: 50px;
+	border-top: solid 1px rgb(34,34,34);
+	padding-top: 5px;
+}
+
+div.footer ul li{
+	text-align: right;
+	list-style-type:none;
+	font-weight: bold;
+}

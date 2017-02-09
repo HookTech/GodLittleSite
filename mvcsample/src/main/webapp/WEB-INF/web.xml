@@ -5,15 +5,24 @@
 	<display-name>Little E Shop</display-name>
 	
 	<context-param>
+	    <param-name>log4jConfigLocation</param-name>
+	    <param-value>classpath:log4j.properties</param-value>
+	</context-param>
+	
+	<listener>
+  		<listener-class>org.springframework.web.util.Log4jConfigListener</listener-class>
+ 	</listener>
+	
+	<context-param>
 		<param-name>contextConfigLocation</param-name>
 		<param-value>classpath*:spring-base.xml</param-value>
 	</context-param>
 	
 	<listener>
-		<listener-class>
-			org.springframework.web.context.ContextLoaderListener
-		</listener-class>
+		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
 	</listener>
+	
+	<!--==============================Spring Dispatcher========================================  -->
 	
 	<servlet>
 		<servlet-name>dispatcher</servlet-name>
@@ -49,10 +58,6 @@
 		<url-pattern>/</url-pattern>
 	</servlet-mapping>
 	
- 	<listener>
-  		<listener-class>org.springframework.web.util.Log4jConfigListener</listener-class>
- 	</listener>
- 	<!--==============================Spring Dispatcher========================================  -->
  	<session-config>     
 		<session-timeout>30</session-timeout>       
 	</session-config> 

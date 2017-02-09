@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.unionpay.logical.mapper.TheologySermonMapper" >
+  <resultMap id="BaseResultMap" type="com.unionpay.logical.bean.TheologySermon" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="sermon_header" property="sermonHeader" jdbcType="VARCHAR" />
+    <result column="sermon_theme" property="sermonTheme" jdbcType="VARCHAR" />
+    <result column="sermon_time" property="sermonTime" jdbcType="TIMESTAMP" />
+    <result column="sermon_speaker" property="sermonSpeaker" jdbcType="VARCHAR" />
+    <result column="sermon_audio_type" property="sermonAudioType" jdbcType="VARCHAR" />
+    <result column="sermon_audio_url" property="sermonAudioUrl" jdbcType="VARCHAR" />
+    <result column="sermon_vedio_type" property="sermonVedioType" jdbcType="VARCHAR" />
+    <result column="sermon_vedio_url" property="sermonVedioUrl" jdbcType="VARCHAR" />
+    <result column="sermon_doc_type" property="sermonDocType" jdbcType="VARCHAR" />
+    <result column="sermon_doc_url" property="sermonDocUrl" jdbcType="VARCHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, sermon_header, sermon_theme, sermon_time, sermon_speaker, sermon_audio_type, 
+    sermon_audio_url, sermon_vedio_type, sermon_vedio_url, sermon_doc_type, sermon_doc_url, 
+    create_time, update_time
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from t_theology_sermons
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from t_theology_sermons
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.unionpay.logical.bean.TheologySermon" >
+    insert into t_theology_sermons (id, sermon_header, sermon_theme, 
+      sermon_time, sermon_speaker, sermon_audio_type, 
+      sermon_audio_url, sermon_vedio_type, sermon_vedio_url, 
+      sermon_doc_type, sermon_doc_url, create_time, 
+      update_time)
+    values (#{id,jdbcType=INTEGER}, #{sermonHeader,jdbcType=VARCHAR}, #{sermonTheme,jdbcType=VARCHAR}, 
+      #{sermonTime,jdbcType=TIMESTAMP}, #{sermonSpeaker,jdbcType=VARCHAR}, #{sermonAudioType,jdbcType=VARCHAR}, 
+      #{sermonAudioUrl,jdbcType=VARCHAR}, #{sermonVedioType,jdbcType=VARCHAR}, #{sermonVedioUrl,jdbcType=VARCHAR}, 
+      #{sermonDocType,jdbcType=VARCHAR}, #{sermonDocUrl,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, 
+      #{updateTime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.unionpay.logical.bean.TheologySermon" >
+    insert into t_theology_sermons
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="sermonHeader != null" >
+        sermon_header,
+      </if>
+      <if test="sermonTheme != null" >
+        sermon_theme,
+      </if>
+      <if test="sermonTime != null" >
+        sermon_time,
+      </if>
+      <if test="sermonSpeaker != null" >
+        sermon_speaker,
+      </if>
+      <if test="sermonAudioType != null" >
+        sermon_audio_type,
+      </if>
+      <if test="sermonAudioUrl != null" >
+        sermon_audio_url,
+      </if>
+      <if test="sermonVedioType != null" >
+        sermon_vedio_type,
+      </if>
+      <if test="sermonVedioUrl != null" >
+        sermon_vedio_url,
+      </if>
+      <if test="sermonDocType != null" >
+        sermon_doc_type,
+      </if>
+      <if test="sermonDocUrl != null" >
+        sermon_doc_url,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="updateTime != null" >
+        update_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="sermonHeader != null" >
+        #{sermonHeader,jdbcType=VARCHAR},
+      </if>
+      <if test="sermonTheme != null" >
+        #{sermonTheme,jdbcType=VARCHAR},
+      </if>
+      <if test="sermonTime != null" >
+        #{sermonTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="sermonSpeaker != null" >
+        #{sermonSpeaker,jdbcType=VARCHAR},
+      </if>
+      <if test="sermonAudioType != null" >
+        #{sermonAudioType,jdbcType=VARCHAR},
+      </if>
+      <if test="sermonAudioUrl != null" >
+        #{sermonAudioUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="sermonVedioType != null" >
+        #{sermonVedioType,jdbcType=VARCHAR},
+      </if>
+      <if test="sermonVedioUrl != null" >
+        #{sermonVedioUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="sermonDocType != null" >
+        #{sermonDocType,jdbcType=VARCHAR},
+      </if>
+      <if test="sermonDocUrl != null" >
+        #{sermonDocUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null" >
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.unionpay.logical.bean.TheologySermon" >
+    update t_theology_sermons
+    <set >
+      <if test="sermonHeader != null" >
+        sermon_header = #{sermonHeader,jdbcType=VARCHAR},
+      </if>
+      <if test="sermonTheme != null" >
+        sermon_theme = #{sermonTheme,jdbcType=VARCHAR},
+      </if>
+      <if test="sermonTime != null" >
+        sermon_time = #{sermonTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="sermonSpeaker != null" >
+        sermon_speaker = #{sermonSpeaker,jdbcType=VARCHAR},
+      </if>
+      <if test="sermonAudioType != null" >
+        sermon_audio_type = #{sermonAudioType,jdbcType=VARCHAR},
+      </if>
+      <if test="sermonAudioUrl != null" >
+        sermon_audio_url = #{sermonAudioUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="sermonVedioType != null" >
+        sermon_vedio_type = #{sermonVedioType,jdbcType=VARCHAR},
+      </if>
+      <if test="sermonVedioUrl != null" >
+        sermon_vedio_url = #{sermonVedioUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="sermonDocType != null" >
+        sermon_doc_type = #{sermonDocType,jdbcType=VARCHAR},
+      </if>
+      <if test="sermonDocUrl != null" >
+        sermon_doc_url = #{sermonDocUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null" >
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.unionpay.logical.bean.TheologySermon" >
+    update t_theology_sermons
+    set sermon_header = #{sermonHeader,jdbcType=VARCHAR},
+      sermon_theme = #{sermonTheme,jdbcType=VARCHAR},
+      sermon_time = #{sermonTime,jdbcType=TIMESTAMP},
+      sermon_speaker = #{sermonSpeaker,jdbcType=VARCHAR},
+      sermon_audio_type = #{sermonAudioType,jdbcType=VARCHAR},
+      sermon_audio_url = #{sermonAudioUrl,jdbcType=VARCHAR},
+      sermon_vedio_type = #{sermonVedioType,jdbcType=VARCHAR},
+      sermon_vedio_url = #{sermonVedioUrl,jdbcType=VARCHAR},
+      sermon_doc_type = #{sermonDocType,jdbcType=VARCHAR},
+      sermon_doc_url = #{sermonDocUrl,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      update_time = #{updateTime,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>
