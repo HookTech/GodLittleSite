@@ -22,6 +22,15 @@
 		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
 	</listener>
 	
+	<filter>
+		<filter-name>access_cross_domin_allow</filter-name>
+		<filter-class>com.unionpay.filter.AccessCrossDominFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>access_cross_domin_allow</filter-name>
+		<url-pattern>*.json</url-pattern>
+	</filter-mapping>
+	
 	<!--==============================Spring Dispatcher========================================  -->
 	
 	<servlet>
